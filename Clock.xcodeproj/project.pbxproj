@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2C8165298D4A3400ECA031 /* BatteryIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C8164298D4A3400ECA031 /* BatteryIndicatorView.swift */; };
 		3BA899FC298CD95B003AE867 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA899FB298CD95B003AE867 /* AppDelegate.swift */; };
-		3BA899FE298CD95B003AE867 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA899FD298CD95B003AE867 /* SceneDelegate.swift */; };
 		3BA89A00298CD95B003AE867 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA899FF298CD95B003AE867 /* ViewController.swift */; };
-		3BA89A03298CD95B003AE867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA89A01298CD95B003AE867 /* Main.storyboard */; };
 		3BA89A05298CD95D003AE867 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA89A04298CD95D003AE867 /* Assets.xcassets */; };
 		3BA89A08298CD95D003AE867 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA89A06298CD95D003AE867 /* LaunchScreen.storyboard */; };
+		3BA89A11298CDB96003AE867 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA89A10298CDB96003AE867 /* ClockView.swift */; };
+		3BA89A13298CDD0C003AE867 /* RepresentPreviewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA89A12298CDD0C003AE867 /* RepresentPreviewSwiftUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B2C8164298D4A3400ECA031 /* BatteryIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryIndicatorView.swift; sourceTree = "<group>"; };
 		3BA899F8298CD95B003AE867 /* Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA899FB298CD95B003AE867 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3BA899FD298CD95B003AE867 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3BA899FF298CD95B003AE867 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3BA89A02298CD95B003AE867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BA89A04298CD95D003AE867 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BA89A07298CD95D003AE867 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BA89A09298CD95D003AE867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BA89A10298CDB96003AE867 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		3BA89A12298CDD0C003AE867 /* RepresentPreviewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentPreviewSwiftUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,24 @@
 		3BA899FA298CD95B003AE867 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
+				3BA89A0F298CDB7E003AE867 /* Views */,
 				3BA899FB298CD95B003AE867 /* AppDelegate.swift */,
-				3BA899FD298CD95B003AE867 /* SceneDelegate.swift */,
 				3BA899FF298CD95B003AE867 /* ViewController.swift */,
-				3BA89A01298CD95B003AE867 /* Main.storyboard */,
 				3BA89A04298CD95D003AE867 /* Assets.xcassets */,
 				3BA89A06298CD95D003AE867 /* LaunchScreen.storyboard */,
 				3BA89A09298CD95D003AE867 /* Info.plist */,
 			);
 			path = Clock;
+			sourceTree = "<group>";
+		};
+		3BA89A0F298CDB7E003AE867 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BA89A10298CDB96003AE867 /* ClockView.swift */,
+				3B2C8164298D4A3400ECA031 /* BatteryIndicatorView.swift */,
+				3BA89A12298CDD0C003AE867 /* RepresentPreviewSwiftUI.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +138,6 @@
 			files = (
 				3BA89A08298CD95D003AE867 /* LaunchScreen.storyboard in Resources */,
 				3BA89A05298CD95D003AE867 /* Assets.xcassets in Resources */,
-				3BA89A03298CD95B003AE867 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +148,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2C8165298D4A3400ECA031 /* BatteryIndicatorView.swift in Sources */,
 				3BA89A00298CD95B003AE867 /* ViewController.swift in Sources */,
+				3BA89A13298CDD0C003AE867 /* RepresentPreviewSwiftUI.swift in Sources */,
+				3BA89A11298CDB96003AE867 /* ClockView.swift in Sources */,
 				3BA899FC298CD95B003AE867 /* AppDelegate.swift in Sources */,
-				3BA899FE298CD95B003AE867 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3BA89A01298CD95B003AE867 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3BA89A02298CD95B003AE867 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3BA89A06298CD95D003AE867 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +274,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,9 +296,10 @@
 				INFOPLIST_FILE = Clock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +325,10 @@
 				INFOPLIST_FILE = Clock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -346,7 +352,7 @@
 				3BA89A0B298CD95D003AE867 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		3BA89A0C298CD95D003AE867 /* Build configuration list for PBXNativeTarget "Clock" */ = {
 			isa = XCConfigurationList;
@@ -355,7 +361,7 @@
 				3BA89A0E298CD95D003AE867 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
