@@ -9,9 +9,6 @@ import UIKit
 
 
 class ClockView: UIView {
-    var delegate: ChangeColorProtocol?
-    var timer: Timer?
-    
     let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
@@ -32,63 +29,17 @@ class ClockView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        startTimer()
-        updateBackgroundColor()
-        updateTime()
         setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        startTimer()
-        updateBackgroundColor()
-        updateTime()
         setupConstraints()
     }
     
-    deinit {
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            self?.updateTime()
-            self?.updateBackgroundColor()
-        }
-    }
-    
-    @objc func timerAction() {
-        
-    }
-    
-    func updateTime() {
-        timeLabel.text = formatter.string(from: Date())
-    }
-    
-    var dinnerRange: ClosedRange<Date> {
-        let calendar = Calendar.current
-        var dateComponents = calendar.dateComponents(in: .current, from: Date())
-
-        dateComponents.hour = 13
-        dateComponents.minute = 0
-        let startDinner = dateComponents.date
-        dateComponents.hour = 14
-        let endDinner = dateComponents.date
-
-        guard let startDinner, let endDinner else { return Date()...Date() }
-
-        return startDinner...endDinner
-    }
-    
-    func updateBackgroundColor() {
-        let currentTime = Date()
-        if dinnerRange.contains(currentTime) {
-            delegate?.change(color: .red)
-        } else {
-            delegate?.change(color: .black)
-        }
+ 
+    func update(time: Date) {
+        timeLabel.text = formatter.string(from: time)
     }
     
     private func setupConstraints() {

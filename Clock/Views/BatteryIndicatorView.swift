@@ -102,17 +102,17 @@ class BatteryIndicatorView: UIView {
 }
 
 
-//#if canImport(SwiftUI) && DEBUG
-//import SwiftUI
-//
-//@available(iOS 13.0.0, *)
-//struct BatteryIndicatorView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        let view = BatteryIndicatorView(frame: .zero)
-//
-//        return ViewControllerRepresentable(view: view)
-////            .previewLayout(.fixed(width: 150, height: 150))
-////            .padding(.vertical, 300)
-//    }
-//}
-//#endif
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+@available(iOS 13.0.0, *)
+struct BatteryIndicatorView_Preview: PreviewProvider {
+    static var previews: some View {
+        let view = BatteryIndicatorView(frame: .zero)
+
+        return ViewControllerRepresentable(view: view)
+//            .previewLayout(.fixed(width: 150, height: 150))
+//            .padding(.vertical, 300)
+    }
+}
+#endif

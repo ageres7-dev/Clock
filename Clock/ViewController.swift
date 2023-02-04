@@ -7,20 +7,23 @@
 
 import UIKit
 
-protocol ChangeColorProtocol {
-    func change(color: UIColor)
-}
-
 class ViewController: UIViewController {
-    let clockView = ClockView(frame: .zero)
     
+    let clockView = ClockView(frame: .zero)
     let batteryIndicatorView = BatteryIndicatorView(frame: .zero)
+    
+    private var timer: Timer?
+    
+    deinit {
+        timer?.invalidate()
+        timer = nil
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        startTimer()
         setupView()
-        clockView.delegate = self
     }
 
     private func setupView() {
@@ -41,12 +44,64 @@ class ViewController: UIViewController {
             batteryIndicatorView.heightAnchor.constraint(equalToConstant: 2)
         ])
     }
-
 }
 
-extension ViewController: ChangeColorProtocol {
-    func change(color: UIColor) {
-        view.backgroundColor = color
+extension ViewController {
+    
+    var dinnerRange: ClosedRange<Date> {
+        let calendar = Calendar.current
+        var dateComponents = calendar.dateComponents(in: .current, from: Date())
+
+        dateComponents.hour = 13
+        dateComponents.minute = 0
+        let startDinner = dateComponents.date
+        dateComponents.hour = 14
+        let endDinner = dateComponents.date
+
+        guard let startDinner, let endDinner else { return Date()...Date() }
+
+        return startDinner...endDinner
+    }
+    
+    var workTimeRange: ClosedRange<Date> {
+        let calendar = Calendar.current
+        var dateComponents = calendar.dateComponents(in: .current, from: Date())
+
+        dateComponents.hour = 10
+        dateComponents.minute = 0
+        let startDinner = dateComponents.date
+        dateComponents.hour = 19
+        let endDinner = dateComponents.date
+
+        guard let startDinner, let endDinner else { return Date()...Date() }
+
+        return startDinner...endDinner
+    }
+    
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            self?.clockView.update(time: Date())
+            self?.updateBackgroundColor()
+            self?.updateBrightness()
+        }
+    }
+    
+    func updateBackgroundColor() {
+        let currentTime = Date()
+        if dinnerRange.contains(currentTime) {
+            view.backgroundColor = .red
+        } else {
+            view.backgroundColor = .black
+        }
+    }
+    
+    func updateBrightness() {
+        let currentTime = Date()
+        if workTimeRange.contains(currentTime) {
+            UIScreen.main.brightness = 0.9
+        } else {
+            UIScreen.main.brightness = 0
+        }
     }
 }
 
