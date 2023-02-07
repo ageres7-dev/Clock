@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BatteryIndicatorView: UIView {
+class BatteryLineIndicatorView: UIView {
     let indicatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -108,7 +108,7 @@ import SwiftUI
 @available(iOS 13.0.0, *)
 struct BatteryIndicatorView_Preview: PreviewProvider {
     static var previews: some View {
-        let view = BatteryIndicatorView(frame: .zero)
+        let view = BatteryLineIndicatorView(frame: .zero)
 
         return ViewControllerRepresentable(view: view)
 //            .previewLayout(.fixed(width: 150, height: 150))
