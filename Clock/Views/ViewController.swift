@@ -246,11 +246,6 @@ extension ViewController: CLLocationManagerDelegate {
     }
 }
 
-extension ViewController {
-
-}
-
-
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 
