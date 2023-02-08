@@ -50,7 +50,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        
+        UIApplication.shared.isIdleTimerDisabled = true
         locationManager.delegate = self
         clockView.update(time: Date())
         updateBackgroundColor()
@@ -75,6 +76,8 @@ class ViewController: UIViewController {
         )
     }
     private func setupView() {
+        view.backgroundColor = .black
+        
         view.addSubview(clockView)
         clockView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(weatherView)
@@ -105,6 +108,7 @@ class ViewController: UIViewController {
             batteryIcon.widthAnchor.constraint(equalToConstant: 34)
         ])
     }
+    
     private func addObservers() {
         NotificationCenter.default.addObserver(
             self,
