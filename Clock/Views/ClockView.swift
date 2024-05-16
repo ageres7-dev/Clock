@@ -20,7 +20,7 @@ class ClockView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 300)
+        label.font = .boldSystemFont(ofSize: 1000)
         label.adjustsFontSizeToFitWidth = true
         label.textColor = .white
         

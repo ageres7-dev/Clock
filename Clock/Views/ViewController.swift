@@ -93,9 +93,9 @@ class ViewController: UIViewController {
             clockView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             clockView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             
-            weatherView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            weatherView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            weatherView.leftAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leftAnchor),
+            weatherView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            weatherView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -8),
+            weatherView.leftAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.leftAnchor, constant: 8),
             
             goSettingsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             goSettingsButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -8),
@@ -130,6 +130,22 @@ class ViewController: UIViewController {
 
 extension ViewController {
     
+    var dinnerAlertRange: ClosedRange<Date> {
+        let calendar = Calendar.current
+        var dateComponents = calendar.dateComponents(in: .current, from: Date())
+
+        dateComponents.hour = 12
+        dateComponents.minute = 59
+        let startDinner = dateComponents.date
+        dateComponents.hour = 13
+        dateComponents.minute = 0
+        let endDinner = dateComponents.date
+
+        guard let startDinner, let endDinner else { return Date()...Date() }
+
+        return startDinner...endDinner
+    }
+    
     var dinnerRange: ClosedRange<Date> {
         let calendar = Calendar.current
         var dateComponents = calendar.dateComponents(in: .current, from: Date())
@@ -143,6 +159,23 @@ extension ViewController {
         guard let startDinner, let endDinner else { return Date()...Date() }
 
         return startDinner...endDinner
+    }
+    
+    var endWorkAlertTimeRange: ClosedRange<Date> {
+        let calendar = Calendar.current
+        var dateComponents = calendar.dateComponents(in: .current, from: Date())
+
+        dateComponents.hour = 18
+        dateComponents.minute = 55
+        let start = dateComponents.date
+        
+        dateComponents.hour = 20
+        dateComponents.minute = 00
+        let end = dateComponents.date
+
+        guard let start, let end else { return Date()...Date() }
+
+        return start...end
     }
     
     var workTimeRange: ClosedRange<Date> {
@@ -173,6 +206,8 @@ extension ViewController {
         let currentTime = Date()
         if dinnerRange.contains(currentTime) {
             view.backgroundColor = .red
+        } else if dinnerAlertRange.contains(currentTime) || endWorkAlertTimeRange.contains(currentTime) {
+            view.backgroundColor = getRandomColor()
         } else {
             view.backgroundColor = .black
         }
@@ -211,7 +246,15 @@ extension ViewController {
                 self.weatherView.stopActivity()
             }
         }
-        
+    }
+    
+    func getRandomColor() -> UIColor {
+        UIColor(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1),
+            alpha: 1
+        )
     }
 }
 

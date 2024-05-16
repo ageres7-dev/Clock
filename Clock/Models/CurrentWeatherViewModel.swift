@@ -10,7 +10,8 @@ import Foundation
 struct CurrentWeatherViewModel {
     let iconName: String
     let temperature: String
-    var locationName: String?
+    let locationName: String?
+    let description: String?
 }
 
 extension CurrentWeatherViewModel {
@@ -45,6 +46,8 @@ extension CurrentWeatherViewModel {
         default: result = ""
         }
         iconName = result
+        
+        description = model.weather?.first?.description
     }
 
 }

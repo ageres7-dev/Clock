@@ -15,6 +15,7 @@
 		3BA89A08298CD95D003AE867 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BA89A06298CD95D003AE867 /* LaunchScreen.storyboard */; };
 		3BA89A11298CDB96003AE867 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA89A10298CDB96003AE867 /* ClockView.swift */; };
 		3BA89A13298CDD0C003AE867 /* RepresentPreviewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA89A12298CDD0C003AE867 /* RepresentPreviewSwiftUI.swift */; };
+		3BB53586299A35BF00C970C7 /* Ext + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB53585299A35BF00C970C7 /* Ext + String.swift */; };
 		3BB7E53F298EFB550070FEEA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB7E53B298EFB550070FEEA /* API.swift */; };
 		3BB7E540298EFB550070FEEA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB7E53C298EFB550070FEEA /* Constant.swift */; };
 		3BB7E541298EFB550070FEEA /* URL Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB7E53D298EFB550070FEEA /* URL Manager.swift */; };
@@ -40,6 +41,7 @@
 		3BA89A09298CD95D003AE867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BA89A10298CDB96003AE867 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		3BA89A12298CDD0C003AE867 /* RepresentPreviewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentPreviewSwiftUI.swift; sourceTree = "<group>"; };
+		3BB53585299A35BF00C970C7 /* Ext + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext + String.swift"; sourceTree = "<group>"; };
 		3BB7E53B298EFB550070FEEA /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3BB7E53C298EFB550070FEEA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3BB7E53D298EFB550070FEEA /* URL Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL Manager.swift"; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		3BB7E551298EFDC00070FEEA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3BB7E553298F13A20070FEEA /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		3BB7E575298F6C790070FEEA /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		3BCC5D222A793D170005C5AC /* Clock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clock.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 		3BA899FA298CD95B003AE867 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
+				3BCC5D222A793D170005C5AC /* Clock.entitlements */,
+				3BB53584299A35AA00C970C7 /* Extensions */,
 				3BB7E543298EFBCD0070FEEA /* Models */,
 				3BA899FB298CD95B003AE867 /* AppDelegate.swift */,
 				3BB7E53A298EFABF0070FEEA /* Services */,
@@ -106,6 +111,14 @@
 				3B522545299300B100493669 /* BatteryView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3BB53584299A35AA00C970C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3BB53585299A35BF00C970C7 /* Ext + String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3BB7E53A298EFABF0070FEEA /* Services */ = {
@@ -225,6 +238,7 @@
 				3BB7E53F298EFB550070FEEA /* API.swift in Sources */,
 				3BB7E576298F6C790070FEEA /* CurrentWeatherViewModel.swift in Sources */,
 				3BA899FC298CD95B003AE867 /* AppDelegate.swift in Sources */,
+				3BB53586299A35BF00C970C7 /* Ext + String.swift in Sources */,
 				3BB7E54E298EFC160070FEEA /* Temperature.swift in Sources */,
 				3BB7E54D298EFC160070FEEA /* ForecastOneCalAPI.swift in Sources */,
 				3BB7E54F298EFC160070FEEA /* Pressure.swift in Sources */,
@@ -365,15 +379,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Clock/Clock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = RNER64Q73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Clock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Clock from Sergey";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Turning on location services allows us to show you local weather.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Turning on location services allows us to show you local weather.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -385,9 +402,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.ageres7.Clock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -396,15 +416,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Clock/Clock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = RNER64Q73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Clock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Clock from Sergey";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Turning on location services allows us to show you local weather.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Turning on location services allows us to show you local weather.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -416,9 +439,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.ageres7.Clock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};

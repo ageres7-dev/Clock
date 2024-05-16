@@ -46,42 +46,10 @@
             filePath = "Clock/Models/CurrentWeatherViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "init(from:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "22F3CD63-E931-402F-82A2-9B3B2A23386B - a2910700d8bb4f75"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Clock.CurrentWeatherViewModel.init(from: Clock.CurrentWeather) -&gt; Clock.CurrentWeatherViewModel"
-                  moduleName = "Clock"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ageres7/Documents/iOS%20%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D1%81%20%D0%BD%D1%83%D0%BB%D1%8F%20%D0%B7%D0%B0%2020%20%D0%BD%D0%B5%D0%B4%D0%B5%D0%BB%D1%8C/Pet%20Projects/Clock/Clock/Models/CurrentWeatherViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "496">
-               </Location>
-               <Location
-                  uuid = "22F3CD63-E931-402F-82A2-9B3B2A23386B - a2910700d8bb4f75"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Clock.CurrentWeatherViewModel.init(from: Clock.CurrentWeather) -&gt; Clock.CurrentWeatherViewModel"
-                  moduleName = "Clock"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ageres7/Documents/iOS%20%D0%A0%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%20%D1%81%20%D0%BD%D1%83%D0%BB%D1%8F%20%D0%B7%D0%B0%2020%20%D0%BD%D0%B5%D0%B4%D0%B5%D0%BB%D1%8C/Pet%20Projects/Clock/Clock/Models/CurrentWeatherViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "688">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

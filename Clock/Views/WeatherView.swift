@@ -27,7 +27,7 @@ class WeatherView: UIView {
         return label
     }()
     
-    let locationLabel: UILabel = {
+    let secondLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.textAlignment = .center
@@ -52,7 +52,7 @@ class WeatherView: UIView {
     func update(from model: CurrentWeatherViewModel) {
         temperatureLabel.text = model.temperature
         icon.image = UIImage(named: model.iconName)
-        locationLabel.text = model.locationName
+        secondLabel.text = model.description?.capitalizingFirstLetter()
     }
     
     func startActivity() {
@@ -69,8 +69,8 @@ class WeatherView: UIView {
         addSubview(temperatureLabel)
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(locationLabel)
-        locationLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(secondLabel)
+        secondLabel.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(icon)
         icon.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +83,7 @@ class WeatherView: UIView {
         )
         temperatureLabelLeftAnchor.priority = .defaultLow
         
-        let locationLabelLeftAnchor = locationLabel.leftAnchor.constraint(
+        let locationLabelLeftAnchor = secondLabel.leftAnchor.constraint(
             greaterThanOrEqualTo: leftAnchor
         )
         temperatureLabelLeftAnchor.priority = .defaultLow
@@ -101,10 +101,10 @@ class WeatherView: UIView {
             temperatureLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
             temperatureLabel.rightAnchor.constraint(equalTo: rightAnchor),
             
-            locationLabel.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor),
-            locationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            secondLabel.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor),
+            secondLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             locationLabelLeftAnchor,
-            locationLabel.topAnchor.constraint(equalTo: temperatureLabel.bottomAnchor),
+            secondLabel.topAnchor.constraint(equalTo: temperatureLabel.bottomAnchor),
             
             activityIndicatorView.centerXAnchor.constraint(equalTo: icon.centerXAnchor),
             activityIndicatorView.centerYAnchor.constraint(equalTo: icon.centerYAnchor),

@@ -9,13 +9,29 @@ import Foundation
 
 struct URLManager {
     
-   static func urlOneCallFrom(latitude: Double, longitude: Double) -> URL? {
+    private static func getCurrentLocaleCode() -> String {
+        guard let currentLocale = Locale.preferredLanguages.first else { return "en" }
+        
+        switch currentLocale {
+        case _ where currentLocale.contains("zh_Hans"):
+            return "zh_cn"
+        case _ where currentLocale.contains("zh_Hant"):
+            return "zh_tw"
+        case "pt_BR":
+            return currentLocale.lowercased()
+        default:
+            return String(currentLocale.prefix(2))
+        }
+    }
+    
+    static func urlOneCallFrom(latitude: Double, longitude: Double) -> URL? {
         let queryItems = [
             URLQueryItem(name: "exclude", value: "minutely,hourly,alerts"),
             URLQueryItem(name: "lat", value: String(latitude)),
             URLQueryItem(name: "lon", value: String(longitude)),
             URLQueryItem(name: "appid", value: API.key.rawValue),
             URLQueryItem(name: "units", value: "metric"),
+            URLQueryItem(name: "lang", value: getCurrentLocaleCode())
         ]
         
         var components = URLComponents(string: Constant.oneCallURL.rawValue)
@@ -30,6 +46,7 @@ struct URLManager {
             URLQueryItem(name: "lon", value: String(longitude)),
             URLQueryItem(name: "appid", value: API.key.rawValue),
             URLQueryItem(name: "units", value: "metric"),
+            URLQueryItem(name: "lang", value: getCurrentLocaleCode())
         ]
         
         var components = URLComponents(string: Constant.currentWeatherURL.rawValue)
