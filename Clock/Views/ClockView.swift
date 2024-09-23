@@ -22,7 +22,7 @@ class ClockView: UIView {
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 1000)
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = .white
+        label.textColor = .black
         
         return label
     }()
@@ -37,6 +37,9 @@ class ClockView: UIView {
         setupConstraints()
     }
     
+    func setColor(_ color: UIColor) {
+        timeLabel.textColor = color
+    }
  
     func update(time: Date) {
         timeLabel.text = formatter.string(from: time)

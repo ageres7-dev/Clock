@@ -37,7 +37,7 @@ class NetworkManager {
         }
     }
     
-    private func fetchObject<T: Decodable>(_ type: T.Type, from url: URL?, completion: @escaping (_ object: T)->()) {
+    private func fetchObject<T: Decodable>(_ type: T.Type, from url: URL?, completion: @escaping (_ object: T) -> ()) {
         
         guard let url = url else { return }
         

@@ -29,8 +29,11 @@ class ViewController: UIViewController {
     private var currentLocation: CLLocation?
     private var dateLastUpdateWeather: Date?
     
+    private var isLight = true
+    private var tintColor: UIColor = .black
+    private var backgroundColor: UIColor = .white
     
-    ///15 минут 
+    ///15 минут
     private let minTimeIntervalUpdateCurrentWeather = TimeInterval(60 * 15)
     
     private var isAllowUpdateWeather: Bool {
@@ -59,6 +62,7 @@ class ViewController: UIViewController {
         startTimer()
         setupView()
         setupGoSettingsButton()
+        addViewAction()
         addObservers()
     }
     
@@ -209,8 +213,28 @@ extension ViewController {
         } else if dinnerAlertRange.contains(currentTime) || endWorkAlertTimeRange.contains(currentTime) {
             view.backgroundColor = getRandomColor()
         } else {
-            view.backgroundColor = .black
+            view.backgroundColor = backgroundColor
         }
+    }
+    
+    func addViewAction() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(changeColor))
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func changeColor() {
+        isLight.toggle()
+        tintColor = isLight ? .black : .white
+        backgroundColor = isLight ? .white : .black
+        updateTintColor()
+        updateBackgroundColor()
+    }
+    
+    func updateTintColor() {
+        view.backgroundColor = backgroundColor
+        weatherView.setColor(tintColor)
+        clockView.setColor(tintColor)
     }
     
     func updateBrightness() {

@@ -22,7 +22,7 @@ class WeatherView: UIView {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 20)
-        label.textColor = .white
+        label.textColor = .black
         
         return label
     }()
@@ -32,12 +32,19 @@ class WeatherView: UIView {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 14)
-        label.textColor = .white
+        label.textColor = .black
         
         return label
     }()
     
-    let activityIndicatorView = UIActivityIndicatorView()
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let activity = UIActivityIndicatorView()
+        activity.color = .black
+        return activity
+    }()
+    
+    private var color: UIColor = .black
+    private var iconName = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,10 +56,29 @@ class WeatherView: UIView {
         setupConstraints()
     }
     
+    func setColor(_ color: UIColor) {
+        self.color = color
+        activityIndicatorView.color = color
+        secondLabel.textColor = color
+        temperatureLabel.textColor = color
+        updateIconImage()
+    }
+    
     func update(from model: CurrentWeatherViewModel) {
         temperatureLabel.text = model.temperature
-        icon.image = UIImage(named: model.iconName)
+        iconName = model.iconName
+        updateIconImage()
         secondLabel.text = model.description?.capitalizingFirstLetter()
+    }
+    
+    func updateIconImage() {
+        guard !iconName.isEmpty else { return }
+        if #available(iOS 13.0, *) {
+            icon.image = UIImage(named: iconName)?.withTintColor(color, renderingMode: .alwaysTemplate)
+        } else {
+            icon.image = UIImage(named: iconName)?.withRenderingMode(.alwaysTemplate)
+            icon.tintColor = color
+        }
     }
     
     func startActivity() {
