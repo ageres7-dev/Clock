@@ -57,6 +57,7 @@ class ViewController: UIViewController {
         UIApplication.shared.isIdleTimerDisabled = true
         locationManager.delegate = self
         clockView.update(time: Date())
+        updateTintColor()
         updateBackgroundColor()
         updateBrightness()
         startTimer()
@@ -235,6 +236,7 @@ extension ViewController {
         view.backgroundColor = backgroundColor
         weatherView.setColor(tintColor)
         clockView.setColor(tintColor)
+        batteryIcon.setColor(tintColor)
     }
     
     func updateBrightness() {

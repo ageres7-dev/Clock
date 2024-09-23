@@ -27,6 +27,13 @@ class BatteryView: UIView {
         UIDevice.current.batteryLevel
     }
     
+    func setColor(_ color: UIColor) {
+        self.color = color
+        updateIndicator()
+    }
+    
+    private var color: UIColor = .black
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         UIDevice.current.isBatteryMonitoringEnabled = true
@@ -90,7 +97,12 @@ class BatteryView: UIView {
         default:
             imageName = "battery.100"
         }
-        batteryImageView.image = UIImage(named: imageName)
+        if #available(iOS 13.0, *) {
+        batteryImageView.image = UIImage(named: imageName)?.withTintColor(color, renderingMode: .alwaysTemplate)
+        } else {
+            batteryImageView.image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+            batteryImageView.tintColor = color
+        }
     }
     
     @objc func batteryStateDidChange(_ notification: Notification) {
